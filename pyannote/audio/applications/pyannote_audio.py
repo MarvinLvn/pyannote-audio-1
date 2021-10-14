@@ -275,39 +275,36 @@ import warnings
 from docopt import docopt
 from pathlib import Path
 import multiprocessing
-
 import torch
-from .speech_detection import SpeechActivityDetection
-from .change_detection import SpeakerChangeDetection
-from .overlap_detection import OverlapDetection
-from .speaker_embedding import SpeakerEmbedding
-from .domain_classification import DomainClassification
-from .labels_detection import MultilabelDetection
-
 
 def main():
-
     # TODO: update version automatically
     arg = docopt(__doc__, version='pyannote-audio 2.0')
 
     params = {}
 
     if arg['sad']:
+        from .speech_detection import SpeechActivityDetection
         Application = SpeechActivityDetection
 
     elif arg['scd']:
+        from .change_detection import SpeakerChangeDetection
         Application = SpeakerChangeDetection
 
     elif arg['ovl']:
+        from .overlap_detection import OverlapDetection
         Application = OverlapDetection
 
     elif arg['emb']:
+        from .speaker_embedding import SpeakerEmbedding
         Application = SpeakerEmbedding
 
     elif arg['dom']:
+        from .domain_classification import DomainClassification
         Application = DomainClassification
 
     elif arg['mlt']:
+        from .labels_detection import MultilabelDetection
         Application = MultilabelDetection
 
     device = 'cuda' if torch.cuda.is_available() else 'cpu'

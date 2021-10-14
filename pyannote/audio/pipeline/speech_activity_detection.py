@@ -40,9 +40,9 @@ from pyannote.core import SlidingWindowFeature
 
 from pyannote.audio.utils.signal import Binarize
 from pyannote.audio.features import Precomputed
-
-from pyannote.metrics.detection import DetectionErrorRate
-from pyannote.metrics.detection import DetectionPrecisionRecallFMeasure
+# https://github.com/orasanen/ALICE/issues/21
+# from pyannote.metrics.detection import DetectionErrorRate
+# from pyannote.metrics.detection import DetectionPrecisionRecallFMeasure
 from pyannote.audio.features.wrapper import Wrapper, Wrappable
 
 
@@ -161,7 +161,7 @@ class SpeechActivityDetection(Pipeline):
         return speech.to_annotation(generator='string', modality='speech')
 
 
-    def get_metric(self, parallel=False) -> Union[DetectionErrorRate, DetectionPrecisionRecallFMeasure]:
+    def get_metric(self, parallel=False): # -> Union[DetectionErrorRate, DetectionPrecisionRecallFMeasure]:
         """Return new instance of detection metric"""
 
         if self.fscore:

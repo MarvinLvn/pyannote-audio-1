@@ -47,8 +47,9 @@ from pyannote.audio.pipeline import MultilabelDetection \
 from pyannote.database import FileFinder
 from pyannote.database import get_annotated
 from pyannote.database import get_protocol
-from pyannote.metrics.detection import DetectionRecall
-from pyannote.metrics.detection import DetectionPrecision
+# https://github.com/orasanen/ALICE/issues/21
+# from pyannote.metrics.detection import DetectionRecall
+# from pyannote.metrics.detection import DetectionPrecision
 from sortedcontainers import SortedDict
 from torch.utils.tensorboard import SummaryWriter
 from tqdm import tqdm
